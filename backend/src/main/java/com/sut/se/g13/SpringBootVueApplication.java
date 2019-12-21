@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 
-import java.util.stream.Stream;
-
 @SpringBootApplication
 public class SpringBootVueApplication {
 
@@ -19,11 +17,15 @@ public class SpringBootVueApplication {
 	@Bean
 	ApplicationRunner init(EmployeeRepository employeeRepository) {
 		return args -> {
-			Stream.of("se2562", "se2019", "sut2562").forEach(password -> {
-				Employee employee = new Employee();
-				employee.setPassword(password);
-				employeeRepository.save(employee);
-			});
+			Employee infoemp1 = new Employee();
+			infoemp1.setUsername("G13");
+			infoemp1.setPassword("SE2562");
+			employeeRepository.save(infoemp1);
+
+			Employee infoemp2 = new Employee();
+			infoemp2.setUsername("Bank");
+			infoemp2.setPassword("031239");
+			employeeRepository.save(infoemp2);
 		};
 	}
 
